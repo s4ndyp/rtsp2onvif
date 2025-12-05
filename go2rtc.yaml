@@ -1,0 +1,20 @@
+api:
+  listen: ":1984"    # De poort voor de API en Web Interface
+  origin: "*"        # BELANGRIJK: Hiermee mag je React app (localhost:3000 etc) de API aanroepen
+
+rtsp:
+  listen: ":8554"    # De poort voor uitgaande RTSP streams (voor je NVR)
+
+streams:
+  # Je kunt hier vaste streams definiëren, maar de UI doet dit dynamisch via de API
+  # camera1: rtsp://user:pass@192.168.1.123:554/stream
+
+webrtc:
+  listen: ":8555"
+  candidates:
+    - 192.168.1.50:8555 # Pas dit aan naar het IP van de machine waar go2rtc op draait
+
+# Logging helpt bij het debuggen van de verbinding met je UI
+log:
+  level: info
+  api: debug
